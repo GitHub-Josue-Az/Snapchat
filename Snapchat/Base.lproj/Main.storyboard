@@ -79,11 +79,23 @@
         <!--Snaps View Controller-->
         <scene sceneID="D5z-PO-76x">
             <objects>
-                <viewController id="it9-0P-tAH" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="it9-0P-tAH" customClass="SnapsViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iPx-ts-Bx9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MmM-rZ-7KO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZVD-OH-Vrz" firstAttribute="trailing" secondItem="MmM-rZ-7KO" secondAttribute="trailing" id="4F5-7y-k4t"/>
+                            <constraint firstItem="MmM-rZ-7KO" firstAttribute="top" secondItem="ZVD-OH-Vrz" secondAttribute="top" id="Exk-T5-aoB"/>
+                            <constraint firstItem="ZVD-OH-Vrz" firstAttribute="bottom" secondItem="MmM-rZ-7KO" secondAttribute="bottom" id="HPj-Or-NoK"/>
+                            <constraint firstItem="MmM-rZ-7KO" firstAttribute="leading" secondItem="ZVD-OH-Vrz" secondAttribute="leading" id="fsV-ju-cae"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZVD-OH-Vrz"/>
                     </view>
                     <navigationItem key="navigationItem" id="aAK-Lc-aT0">
@@ -98,6 +110,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="MmM-rZ-7KO" id="Byg-U3-FJm"/>
+                        <segue destination="EIE-2n-sfD" kind="show" identifier="versnapsegue" id="wwl-Ma-5Kw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5m-ig-8hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,10 +189,50 @@
             </objects>
             <point key="canvasLocation" x="2065" y="156"/>
         </scene>
-        <!--View Controller-->
+        <!--Ver Snap View Controller-->
+        <scene sceneID="yRl-Zk-3Kn">
+            <objects>
+                <viewController id="EIE-2n-sfD" customClass="VerSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cUQ-IG-S2m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yu3-MY-jLv">
+                                <rect key="frame" x="5" y="636" width="365" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ASB-F6-uYr">
+                                <rect key="frame" x="10" y="74" width="355" height="552"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yu3-MY-jLv" firstAttribute="leading" secondItem="URB-uM-3s2" secondAttribute="leading" constant="5" id="2Ef-wS-v14"/>
+                            <constraint firstItem="URB-uM-3s2" firstAttribute="trailing" secondItem="ASB-F6-uYr" secondAttribute="trailing" constant="10" id="5iI-iC-18b"/>
+                            <constraint firstItem="ASB-F6-uYr" firstAttribute="top" secondItem="URB-uM-3s2" secondAttribute="top" constant="10" id="RAD-CO-Fv5"/>
+                            <constraint firstItem="Yu3-MY-jLv" firstAttribute="top" secondItem="ASB-F6-uYr" secondAttribute="bottom" constant="10" id="Scu-CA-LgK"/>
+                            <constraint firstItem="ASB-F6-uYr" firstAttribute="leading" secondItem="URB-uM-3s2" secondAttribute="leading" constant="10" id="UVR-Xd-E0n"/>
+                            <constraint firstItem="Yu3-MY-jLv" firstAttribute="centerX" secondItem="cUQ-IG-S2m" secondAttribute="centerX" id="VxG-rx-6vV"/>
+                            <constraint firstItem="URB-uM-3s2" firstAttribute="trailing" secondItem="Yu3-MY-jLv" secondAttribute="trailing" constant="5" id="clP-wp-xpJ"/>
+                            <constraint firstItem="URB-uM-3s2" firstAttribute="bottom" secondItem="Yu3-MY-jLv" secondAttribute="bottom" constant="10" id="f73-93-8XZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="URB-uM-3s2"/>
+                    </view>
+                    <connections>
+                        <outlet property="ImageView" destination="ASB-F6-uYr" id="fcR-Od-JiH"/>
+                        <outlet property="Label" destination="Yu3-MY-jLv" id="yaf-6F-Ehg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="en4-C4-RKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="968"/>
+        </scene>
+        <!--Elegir Usuario View Controller-->
         <scene sceneID="U1l-YF-4cK">
             <objects>
-                <viewController id="ccd-9A-PcT" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ccd-9A-PcT" customClass="ElegirUsuarioViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tNj-DS-nEs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,6 +251,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vjK-pF-5ll"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Emy-i3-5ow" id="pAk-IB-w95"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCR-OS-Xrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
